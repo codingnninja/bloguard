@@ -1,13 +1,3 @@
 {
-    "data": [
-        {
-            "title": "It should be working now I guess",
-            "slug": "it-should-be-working-now-i-guess",
-            "description": "",
-            "tags": "",
-            "image_url": "",
-            "content": "Around computers it is difficult to find the correct unit of time to measure progress. Some cathedrals took a century to complete. Can you imagine the grandeur and scope of a program that would take as long? ~ Alan Perlismarkdown",
-            "id": 1
-        }
-    ]
+    "data": []
 }
