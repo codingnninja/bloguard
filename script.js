@@ -12,7 +12,6 @@ auth({
     folder: 'user',
     Octokit,
     // status: 'private',
-    // token: "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"
 });
 
 let page = 1;
