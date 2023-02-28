@@ -5,206 +5,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.css" integrity="sha512-6TNeuM0qy53coeyqVAiTdCjcBi26zGhbvVIjTOLNI0lcWW0Aoa3/TwMcPWNSjbmmK8nsCowwKIp9gnBCi4J3YQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            padding: 45px;
+            font-size: 21px;
+            background-color: black;
+        }
+        
+        .markdown-body div p {
+            font-size: 21px;
+        }
+        
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+                color: #555;
+            }
+        }
+    </style>
     <title>Document</title>
 </head>
-<div id="root">
-    <div>
-       <span>
-          <button class="icon icon-settings personalize-button personalize-animate-appear-done personalize-animate-enter-done" data-l10n-id="newtab-personalize-icon-label" title="Personalize new tab" aria-label="Personalize new tab"></button>
-          <div class="customize-menu" role="dialog" data-l10n-id="newtab-personalize-dialog-label" aria-label="Personalize">
-             <button class="close-button" data-l10n-id="newtab-custom-close-button">Close</button>
-             <div></div>
-             <div class="home-section">
-                <div id="shortcuts-section" class="section">
-                   <label class="switch"><input id="shortcuts-toggle" type="checkbox" preference="feeds.topsites" aria-labelledby="custom-shortcuts-title" aria-describedby="custom-shortcuts-subtitle" eventsource="TOP_SITES" checked=""><span class="slider" role="presentation"></span></label>
-                   <div>
-                      <h2 id="custom-shortcuts-title" class="title"><label for="shortcuts-toggle" data-l10n-id="newtab-custom-shortcuts-title">Shortcuts</label></h2>
-                      <p id="custom-shortcuts-subtitle" class="subtitle" data-l10n-id="newtab-custom-shortcuts-subtitle">Sites you save or visit</p>
-                      <div class="more-info-top-wrapper">
-                         <div class="more-information" style="margin-top: 0px;">
-                            <select id="row-selector" class="selector" name="row-count" preference="topSitesRows" aria-labelledby="custom-shortcuts-title">
-                               <option value="1" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 1}">1 row</option>
-                               <option value="2" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 2}">2 rows</option>
-                               <option value="3" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 3}">3 rows</option>
-                               <option value="4" data-l10n-id="newtab-custom-row-selector" data-l10n-args="{&quot;num&quot;: 4}">4 rows</option>
-                            </select>
-                            <div class="check-wrapper" role="presentation"><input id="sponsored-shortcuts" class="sponsored-checkbox" type="checkbox" preference="showSponsoredTopSites" eventsource="SPONSORED_TOP_SITES" checked=""><label class="sponsored" for="sponsored-shortcuts" data-l10n-id="newtab-custom-sponsored-sites">Sponsored shortcuts</label></div>
-                         </div>
-                      </div>
-                   </div>
+<body>
+    <div class="blog grow antialiased bg-black text-gray-400 flex flex-col min-h-screen">
+        <div class="lg:py-8 mx-auto xl:px-5 max-w-screen-lg">
+            <nav>
+                <div class="flex flex-wrap justify-between md:gap-10 md:flex-nowrap m-5">
+                    <img src="logo.png" alt="You too can code logo" width="40">
+                    <div class="flex-col items-center justify-start order-1 hidden w-full md:flex md:flex-row md:justify-end md:w-auto md:order-none md:flex-1">
+                        <a class="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500" href="/">Home</a>
+
+                        <a class="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500" href="/about">About</a>
+
+                        <a class="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500" href="/about">Portfolio</a>
+                        
+                        <a class="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500" href="/contact">Contact</a></div>
                 </div>
-                <div id="recent-section" class="section">
-                   <label class="switch"><input id="highlights-toggle" type="checkbox" preference="feeds.section.highlights" eventsource="HIGHLIGHTS" aria-labelledby="custom-recent-title" aria-describedby="custom-recent-subtitle"><span class="slider" role="presentation"></span></label>
-                   <div>
-                      <h2 id="custom-recent-title" class="title"><label for="highlights-toggle" data-l10n-id="newtab-custom-recent-title">Recent activity</label></h2>
-                      <p id="custom-recent-subtitle" class="subtitle" data-l10n-id="newtab-custom-recent-subtitle">A selection of recent sites and content</p>
-                   </div>
-                </div>
-                <span class="divider" role="separator"></span>
-                <div><button id="settings-link" class="external-link" data-l10n-id="newtab-custom-settings">Manage more settings</button></div>
-             </div>
-          </div>
-       </span>
-       <div class="outer-wrapper ds-outer-wrapper-breakpoint-override visible-logo">
-          <main class="">
-             <div class="non-collapsible-section">
-                <div class="search-wrapper">
-                   <div class="logo-and-wordmark">
-                      <div class="logo"></div>
-                      <div class="wordmark"></div>
-                   </div>
-                   <div class="search-inner-wrapper">
-                      <button class="search-handoff-button" data-l10n-id="newtab-search-box-handoff-input" data-l10n-args="{&quot;engine&quot;:&quot;Google&quot;}" tabindex="-1" title="Search with Google or enter address" aria-label="Search with Google or enter address">
-                         <div class="fake-textbox" data-l10n-id="newtab-search-box-handoff-text" data-l10n-args="{&quot;engine&quot;:&quot;Google&quot;}">Search with Google or enter address</div>
-                         <input type="search" class="fake-editable" tabindex="-1" aria-hidden="true">
-                         <div class="fake-caret"></div>
-                      </button>
-                   </div>
-                </div>
-             </div>
-             <div class="body-wrapper on">
-                <div class="discovery-stream ds-layout">
-                   <div class="ds-column ds-column-12">
-                      <div class="ds-column-grid">
-                         <div>
-                            <div class="ds-top-sites ">
-                               <section class="collapsible-section top-sites" data-section-id="topsites">
-                                  <div class="section-top-bar">
-                                     <h3 class="section-title-container " style="visibility: hidden;"><span class="section-title"><span data-l10n-id="newtab-section-header-topsites">Top Sites</span></span><span class="learn-more-link-wrapper"></span></h3>
-                                  </div>
-                                  <div>
-                                     <ul class="top-sites-list">
-                                        <li class="top-site-outer">
-                                           <div class="top-site-inner">
-                                              <a class="top-site-button" href="https://www.facebook.com/" tabindex="0" draggable="true" data-is-sponsored-link="false">
-                                                 <div class="tile" aria-hidden="true">
-                                                    <div class="icon-wrapper" data-fallback="f">
-                                                       <div class="top-site-icon rich-icon" style="background-image: url(&quot;chrome://activity-stream/content/data/content/tippytop/images/facebook-com@2x.png&quot;);"></div>
-                                                    </div>
-                                                 </div>
-                                                 <div class="title"><span dir="auto">facebook<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored">Sponsored</span></span></div>
-                                              </a>
-                                              <div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;facebook&quot;}" class="context-menu-button icon" title="Open menu" aria-label="Open context menu for facebook"></button></div>
-                                           </div>
-                                        </li>
-                                        <li class="top-site-outer">
-                                           <div class="top-site-inner">
-                                              <a class="top-site-button" href="http://127.0.0.1:5500/workspace/index.html" tabindex="0" draggable="true" data-is-sponsored-link="false">
-                                                 <div class="tile" aria-hidden="true">
-                                                    <div class="icon-wrapper letter-fallback" data-fallback="1" style="background-color: rgb(255, 113, 57);">
-                                                       <div class=""></div>
-                                                    </div>
-                                                 </div>
-                                                 <div class="title"><span dir="auto">127.0.0.1<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored">Sponsored</span></span></div>
-                                              </a>
-                                              <div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;127.0.0.1&quot;}" class="context-menu-button icon" title="Open menu" aria-label="Open context menu for 127.0.0.1"></button></div>
-                                           </div>
-                                        </li>
-                                        <li class="top-site-outer">
-                                           <div class="top-site-inner">
-                                              <a class="top-site-button" href="https://www.udemy.com/" tabindex="0" draggable="true" data-is-sponsored-link="false">
-                                                 <div class="tile" aria-hidden="true">
-                                                    <div class="icon-wrapper" data-fallback="u">
-                                                       <div class="top-site-icon rich-icon" style="background-image: url(&quot;data:image/png;base64,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&quot;);"></div>
-                                                    </div>
-                                                 </div>
-                                                 <div class="title"><span dir="auto">udemy<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored">Sponsored</span></span></div>
-                                              </a>
-                                              <div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;udemy&quot;}" class="context-menu-button icon" title="Open menu" aria-label="Open context menu for udemy"></button></div>
-                                           </div>
-                                        </li>
-                                        <li class="top-site-outer">
-                                           <div class="top-site-inner">
-                                              <a class="top-site-button" href="https://www.aweber.com/" tabindex="0" draggable="true" data-is-sponsored-link="false">
-                                                 <div class="tile" aria-hidden="true">
-                                                    <div class="icon-wrapper" data-fallback="a">
-                                                       <div></div>
-                                                       <div class="top-site-icon default-icon" data-fallback="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAF92lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNi4wLWMwMDIgNzkuMTY0MzUyLCAyMDIwLzAxLzMwLTE1OjUwOjM4ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoTWFjaW50b3NoKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjAtMDQtMzBUMjA6NTY6MTktMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIwLTA1LTA0VDE0OjQyOjM2LTA0OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIwLTA1LTA0VDE0OjQyOjM2LTA0OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU0MTUzYzQ3LWU4MzItNGExNy05YmY2LTI3Mzc1YmIwNGMyMyIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjZmNmQ1YjQ2LWU0N2MtOWM0Yi1iODg3LWJjNzgzMDQwODYyMyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOmNkODY4NTBkLTcxYjctNGI2My1iMmI2LTEwYmIzYzhjZmQ2ZiI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6Y2Q4Njg1MGQtNzFiNy00YjYzLWIyYjYtMTBiYjNjOGNmZDZmIiBzdEV2dDp3aGVuPSIyMDIwLTA0LTMwVDIwOjU2OjE5LTA0OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoTWFjaW50b3NoKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NTQxNTNjNDctZTgzMi00YTE3LTliZjYtMjczNzViYjA0YzIzIiBzdEV2dDp3aGVuPSIyMDIwLTA1LTA0VDE0OjQyOjM2LTA0OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjEuMSAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7Oe7TqAAAHtklEQVR4nOXSe2yUVRoG8IM3FCleuIqoUSi1BTpTNcZYVKJJt9Q7iVGDMetCd9kVBKkoUKFysdJSoNxEEK9IVBRNQCIsurAGd8XsBtkqmCgNELRlZtppS/CCTY/P+Wa+6TfHc3nPUNRk//glDX2f53vPS9nQKUeZ1uSjLFt4JGmS0OgZMjHNuTBI+jcXoSEPN74E9dACUTgE/4MP4DV4BsZDIeaz5I7EXskd/X0nJ95geqPxl4QDFMMqiEAHjM7g8SXAHTXDuzARhvwW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&quot;);"></div>
-                                                    </div>
-                                                 </div>
-                                                 <div class="title"><span dir="auto">aweber<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored">Sponsored</span></span></div>
-                                              </a>
-                                              <div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;aweber&quot;}" class="context-menu-button icon" title="Open menu" aria-label="Open context menu for aweber"></button></div>
-                                           </div>
-                                        </li>
-                                        <li class="top-site-outer">
-                                           <div class="top-site-inner">
-                                              <a class="top-site-button" href="https://www.ayobamie.com/" tabindex="0" draggable="true" data-is-sponsored-link="false">
-                                                 <div class="tile" aria-hidden="true">
-                                                    <div class="icon-wrapper" data-fallback="a">
-                                                       <div></div>
-                                                       <div class="top-site-icon default-icon" data-fallback="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACV0lEQVQ4jYXR20vTARjG8d9f0V9QEAXRVXRhWHhTFE4zLZunxowaNpw5nZqu/TZN5zZ38DBdTjzhhodlEMks85BiEFpkCDU8Qjdqbq7D1OTbbbmp7+XLw4eH9xU4ZBaXl/k8M8vaysqBGSHWcmtrDbFQTYdYSWdrNY6MLJ5rH7Ozt3c0sPU1QNG9ZBrMdUz1NvPC24unxYVDq8Qkz2V3H/IfsL2zQ3HidVrsDrx1Vt72tjDh8dLVP0CfWEBjfgEei+VgYGlpDnVZMuaCIhzSTHqa9EwOdDFeY0SZlY015w4KUYwNhMNhZmZmMSoe0G4sRXVbSmncJVyq+1wQBCz5+diLZYh6PQDBYDC6wevpaRRpaQgnTyMIAgO1Zr4NdiNPyubM8QTOx0tQPTTFbvA7EsGuUOC22Rjq6OTLs0HeNNey6O1nymrF1+TE3erGKeqIbEeigUgkQn1RBR5tBXM+N6M1JiYtej6N2ul8pGKq38a7fis6g45AYCMa+PXzB66R9xjvijjKb+Lvqkdy9hjyyxdRnkvB6yzEWZFKuq6H3Z0IoVAo+gZ/AGVDO7WmPPwDbvxP2xjyuXnV5qDXaqNcoeFJ9+rBbwToeDmFxWSmJE9Jh0aD32pHLZNh1dWhqDEwvLx5OOAbG6PcZMRSaaDPYGDYYMBl0CPaOpGWVhH654AxgeDmd1JkWhplhRSUaMhNvUFVsRpZWRVDgfD+eDQwPz+PprqSEwk5xCVeJTkpgyvpck5JbrG6vnY0sLCwwMT4OGWlJUgSrxEfn4E0U87HkQ+sb6xHAX8BKWJE5ViMX/cAAAAASUVORK5CYII=&quot;);"></div>
-                                                    </div>
-                                                 </div>
-                                                 <div class="title"><span dir="auto">ayobamie<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored">Sponsored</span></span></div>
-                                              </a>
-                                              <div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;ayobamie&quot;}" class="context-menu-button icon" title="Open menu" aria-label="Open context menu for ayobamie"></button></div>
-                                           </div>
-                                        </li>
-                                        <li class="top-site-outer">
-                                           <div class="top-site-inner">
-                                              <a class="top-site-button" href="https://www.akana.com/products/api-platform/api-analytics" tabindex="0" draggable="true" data-is-sponsored-link="false">
-                                                 <div class="tile" aria-hidden="true">
-                                                    <div class="icon-wrapper" data-fallback="a">
-                                                       <div></div>
-                                                       <div class="top-site-icon default-icon" data-fallback="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABC1BMVEUAAADoJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSroJSr////5nJf+AAAAV3RSTlMAAAQ7mNnz9NqVNQIRgujjdw2h/ffl+PsDg6lKIyVOr/l4AT7nfQkMhvrhNJsKDrKPS1TPJCvq6+/YVe6Z7T/pfoeLqycoUrEWrf4XxGkGRJ/AcRmUqJziqbQHAAAAAWJLR0RY7bXEjgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+MGBhMkJsuqEIIAAADMSURBVBjTVc9rVwFxEAbwGcW6bon9r+ROZUmhXHKXSyRJ4vn+36TZ9Sbz7vmdM8+cISJ2nZ27PZrX5w8wSeRgSIczF5dhEQ5eRYCoYSjA9InEriNQ8ZtEMpXOwMzmKF+Aur1jmfuihVKZHoB4xS4jfnwCquRFtMZH4LqFZ9JgvDhZpNFEizyn0KbXfysdC13qnZb2aTCEGlXss+GxZYPrDVCT1HQ2f5csK7xYfgjpegbQTBt4Ve07v5mfa0OuSNnX5tvdLWx/dovf/eEPnHglu1toIPkAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDYtMDZUMTk6MzY6MzgrMDI6MDCDUAMvAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA2LTA2VDE5OjM2OjM4KzAyOjAw8g27kwAAAFd6VFh0UmF3IHByb2ZpbGUgdHlwZSBpcHRjAAB4nOPyDAhxVigoyk/LzEnlUgADIwsuYwsTIxNLkxQDEyBEgDTDZAMjs1Qgy9jUyMTMxBzEB8uASKBKLgDqFxF08kI1lQAAAABJRU5ErkJggg==&quot;);"></div>
-                                                    </div>
-                                                 </div>
-                                                 <div class="title"><span dir="auto">akana<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored">Sponsored</span></span></div>
-                                              </a>
-                                              <div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;akana&quot;}" class="context-menu-button icon" title="Open menu" aria-label="Open context menu for akana"></button></div>
-                                           </div>
-                                        </li>
-                                        <li class="top-site-outer hide-for-narrow">
-                                           <div class="top-site-inner">
-                                              <a class="top-site-button" href="https://mail.zoho.com/" tabindex="0" draggable="true" data-is-sponsored-link="false">
-                                                 <div class="tile" aria-hidden="true">
-                                                    <div class="icon-wrapper letter-fallback" data-fallback="m" style="background-color: rgb(255, 113, 57);">
-                                                       <div class=""></div>
-                                                    </div>
-                                                 </div>
-                                                 <div class="title"><span dir="auto">mail.zoho<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored">Sponsored</span></span></div>
-                                              </a>
-                                              <div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;mail.zoho&quot;}" class="context-menu-button icon" title="Open menu" aria-label="Open context menu for mail.zoho"></button></div>
-                                           </div>
-                                        </li>
-                                        <li class="top-site-outer hide-for-narrow">
-                                           <div class="top-site-inner">
-                                              <a class="top-site-button" href="https://drive.google.com/drive/folders/1nNUbv_EvXS9Q40U8ww7z7e9c0re4lDX3?usp=sharing" tabindex="0" draggable="true" data-is-sponsored-link="false">
-                                                 <div class="tile" aria-hidden="true">
-                                                    <div class="icon-wrapper" data-fallback="d">
-                                                       <div></div>
-                                                       <div class="top-site-icon default-icon" data-fallback="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC80lEQVRYhe2XUUhTYRTHD2PqnHf3XrWpWeqyNcsRzqkbpC7vNWhGrpi4XQk0RkoPCr5YIetB2MxSoxqiLK9F+DAiTKTZS4SYWOAiH8InEfVhyF6SsuWD9PUgi6Vu99PuW33wfzz8/ud/vnP5LsD/g3+IWkZpq8MQABCi02VNpS7P6wsIfawS1GNngUtcehatonh7OOeJDYU+sMImAmfDOpVMJRo/pYPxUTyHKJ5DbS8tWCm8HSryiQKXFueYInCK51Aqb0fz785hmbCyStPf8iWKXksg2gDFc8jss6KfAWEDK35jAAAkB6Yn1BQ4dsIjevHGjJXCrcYcx0H5pMJjXYtloPBZPfo+xwgaWJ8qX0tLA3LfdFljWU8seETdry5ipeB1anr2Rz9Kqslh+6aQgcwB6/KXqfJlDBObem2SGpsv76weE4JTPIcSTWrb9bosG04KsyO6MSy41JDH4sCJLvM0bN9wyefnZdM4Jhpq0llBPtFbOy8EJ3n7Fpw6pI8UsSWUHgWqtoQMrPqN8wAgjUlPsGhbcLqXt1Z4d9aO92u9OCncvpbbsjedBloxWB8S7H6ofh0IImNn+fFMyPjx3rQuZCA8WxmiaaB38ZMcxj6c7pPsuvZYCfa257fjpPC0S9P3Z2W+QoOzdsS92gUASIw5Q4DEFb9xAWctDScVmt9V8s7qCZzupRUqcxw4AABctSjNeGtZPLFdoc0y4MCVD1oXlYWXbTga991cnPI7kZCKio4ZAABkpKduKR6cHr6CztxZRKx7QzRVOoNLACDbHpxJbYtn4MTDEVHhrHsDHSlrtkWPTkJ01czsBU/3NiOTOyQq3Ng2NwO73gkx7sLp/knRu0/XnDfseYNTOpjRaPjhwRuIcX0VFa5zTI7G3qHs5FyKt4cpnkPUMIcMdz+JCmfcG+Hk1PzcuHssayp1UTyHVJ77iHF9E9VAwaUBrP8Fkn7UEKzoXhUVXukMBgHS8J5mCXlqPe5HB1fy7BK9MPlfPL8A+Q6CWOL9DxkAAAAASUVORK5CYII=&quot;);"></div>
-                                                    </div>
-                                                 </div>
-                                                 <div class="title"><span dir="auto">drive.google<span class="sponsored-label" data-l10n-id="newtab-topsite-sponsored">Sponsored</span></span></div>
-                                              </a>
-                                              <div><button aria-haspopup="true" data-l10n-id="newtab-menu-content-tooltip" data-l10n-args="{&quot;title&quot;:&quot;drive.google&quot;}" class="context-menu-button icon" title="Open menu" aria-label="Open context menu for drive.google"></button></div>
-                                           </div>
-                                        </li>
-                                     </ul>
-                                     <div class="edit-topsites-wrapper"></div>
-                                  </div>
-                               </section>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                   <style data-styles="[[null]]"></style>
-                </div>
-                <div class="discovery-stream ds-layout">
-                   <div class="ds-column ds-column-12">
-                      <div class="ds-column-grid">
-                         <div></div>
-                      </div>
-                   </div>
-                   <style data-styles="[[null]]"></style>
-                </div>
-             </div>
-          </main>
-       </div>
+            </nav>
+        <div>
+        
+        <section class="grid place-items-center text-center p-5">
+            <img class="rounded-full w-32 h-32 my-5" src="ayobami.jpg" alt="Marnie from Pokemon Journeys" />
+            <h1 class="text-3xl mb-2 text-white">Ayobami Ogundiran</h1>
+            <h2 class="text-lg text-gray-400 flex-grow md:w-1/2 max-[600px]:w-full">I am a softwere developer who loves to learn, unlearn and relean to make great things happen...read more</h2>
+        </section>
+
+        <section class="uploader flex flex-col antialiased text-gray-200">
+            <button id="upload_widget" class="cloudinary-button" style="display: none; width: 120px;">Upload files</button>
+            <div class="write-article"></div>
+        </section>    
+        <!-- Snippet -->
+        <section class="content flex flex-col antialiased text-gray-200 min-h-screen">
+            <div class="loader flex self-center"></div>
+        </section>
+        
+        <div class="flex flex-col items-center">
+            <div class="inline-flex mt-2 xs:mt-0">
+            <button class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" onclick="loadMore(1)">
+                Load more ...
+                <svg aria-hidden="true" class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+            </div>
+        </div>
+  
+
+        <!-- More components -->
+        <div class="fixed bottom-0 right-0 w-full md:bottom-8 md:right-12 md:w-auto z-60">
+            <div class="bg-gray-800 text-gray-50 text-sm p-3 md:rounded shadow-lg flex justify-between">
+                <div>👉 <a class="hover:underline ml-1" onclick="insertTextarea()">Write article</a></div>
+            </div>
+        </div>
     </div>
- </div>
- <div id="footer-asrouter-container" role="presentation"></div>
+</div>
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
+
+<script type="text/javascript">  
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: 'nyscapp', 
+  uploadPreset: 'nvnv7uua'}, (error, result) => { 
+    if (!error && result && result.event === "success") { 
+        console.log('Done! Here is the image info: ', result.info);
+        const url = result.info.secure_url;
+        console.log(url) 
+        setTextToCurrentPos(url); 
+    }
+  }
+)
+
+document.getElementById("upload_widget").addEventListener("click", function(){
+    myWidget.open();
+  }, false);
+
+const setTextToCurrentPos = (secureURL) => {
+  const curPos = document.getElementById("article-content").selectionStart;
+  console.log(curPos);
+  let article = document.getElementById('article-content').value;
+  let updatedArticle = article.slice(0, curPos) + secureURL + article.slice(curPos);
+  document.getElementById('article-content').value = updatedArticle;
+}
+</script>
 </body>
 </html>
+
+
+
